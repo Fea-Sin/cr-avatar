@@ -16,7 +16,10 @@ function render(container) {
   ReactDOM.render(
     <div>
       <h2>RESCT COMPONENT TEMPLATE</h2>
-      <Testone />
+      <Testone
+        name={'刘亦菲'}
+        color={'#647BFC'}
+      />
     </div>, container
   )
 }

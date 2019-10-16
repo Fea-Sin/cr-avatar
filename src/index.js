@@ -1,7 +1,7 @@
-import React, { PureComponent, Component } from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
-import OuiDom from './utils/ouiDomUtils'
+import React, { PureComponent, Component } from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import OuiDom from './utils/ouiDomUtils';
 
 class Comp extends PureComponent {
 
@@ -18,18 +18,49 @@ class Comp extends PureComponent {
     // console.log('component up date', prevState)
   }
 
-  render () {
+  setString = (str) => {
+    if (str && typeof str === 'string') {
+      let arr = str.split('')
+      return arr && arr[0]
+    }
+    return '';
+  }
+  
 
-    const { prefixCls } = this.props
-    
+  render () {
+    const { prefixCls, name, color } = this.props
+    const avaStyle = {
+      backgroundColor: color,
+    }
+    const nameStyle = {
+      color: color,
+    }
+
+
     return (
-      <div className={`${prefixCls}-text hello`}>COMP IS DONE</div>
+      <div className={`${prefixCls}-con`}>
+        <div 
+          className={`${prefixCls}-ava`}
+          style={avaStyle}
+        >
+          { this.setString(name) }
+        </div>
+        <div 
+          className={`${prefixCls}-name`}
+          style={nameStyle}
+        >
+          {name}
+        </div>
+      </div>
     )
   }
 }
 
 Comp.propTypes = {
-  prefixCls: PropTypes.string
+  prefixCls: PropTypes.string,
+  size: PropTypes.oneOf(['default', 'small', 'large']),
+  name: PropTypes.string,
+  color: PropTypes.string,
 }
 Comp.defaultProps = {
   prefixCls: 'cr-app'

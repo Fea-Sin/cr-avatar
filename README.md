@@ -1,6 +1,6 @@
-# cr-comp
+# cr-avatar
 
-react component
+A react component about custom avatar
 
 
 ## Usage
@@ -20,7 +20,7 @@ npm start
 
 ## Example
 
-http://localhost:8018/examples/index.html
+http://localhost:8018/examples/testOne.html
 
 ## Test
   ```js
