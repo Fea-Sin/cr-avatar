@@ -63,6 +63,7 @@ Comp.propTypes = {
   color: PropTypes.string,
 }
 Comp.defaultProps = {
-  prefixCls: 'cr-app'
+  prefixCls: 'cr-app',
+  color: '#647BFC';
 }
 export default Comp
