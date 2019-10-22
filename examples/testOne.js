@@ -11,6 +11,9 @@ reactContainer.style.cssText = `
                                 padding: 10px;
                                 margin-bottom: 10px;
                                `
+function handleRemove() {
+  console.log('click remove')
+}
 
 function render(container) {
   ReactDOM.render(
@@ -19,6 +22,9 @@ function render(container) {
       <Testone
         name={'刘亦菲'}
         color={'#647BFC'}
+        // mode={'line'}
+        mode={'head'}
+        onRemove={handleRemove}
       />
     </div>, container
   )
