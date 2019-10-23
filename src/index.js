@@ -59,7 +59,7 @@ class Comp extends PureComponent {
             : (<span>{ this.setString(name) }</span>)
           }
           <div className={`${prefixCls}-ava-remove`} onClick={this.handleRemove}>
-            <Icon type="close-circle" theme="filled" style={{ position: 'relative', top: '-5px' }} />
+            <Icon type="close-circle" theme="filled" style={{ position: 'relative', top: '-5px', transform: 'rotate(30deg)' }} />
           </div>
         </div>
         { 
