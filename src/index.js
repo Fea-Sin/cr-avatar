@@ -37,14 +37,18 @@ class Comp extends PureComponent {
   
 
   render () {
-    const { prefixCls, name, color, mode } = this.props
+    const { prefixCls, name, color, mode, url } = this.props
     const avaStyle = {
-      backgroundColor: color,
+      backgroundColor: url ? '#FFF' : color,
     }
     const nameStyle = {
       color: color,
     }
-
+    const Head = () => {
+      return url
+        ? (<img src={url} />)
+        : this.setString(name)
+    }
 
     return (
       <div className={`${prefixCls}-con`}>
@@ -54,9 +58,9 @@ class Comp extends PureComponent {
         >
           { mode === 'head'
             ? (<Tooltip title={name}>
-                <span>{ this.setString(name) }</span>
+                <span>{Head()}</span>
                </Tooltip>)
-            : (<span>{ this.setString(name) }</span>)
+            : (<span>{Head()}</span>)
           }
           <div className={`${prefixCls}-ava-remove`} onClick={this.handleRemove}>
             <Icon type="close-circle" theme="filled" style={{ position: 'relative', top: '-5px', transform: 'rotate(30deg)' }} />
@@ -85,6 +89,7 @@ Comp.propTypes = {
   color: PropTypes.string,
   mode: PropTypes.oneOf(['line', 'head']),
   onRemove: PropTypes.func,
+  url: PropTypes.string,
 }
 Comp.defaultProps = {
   prefixCls: 'cr-app',

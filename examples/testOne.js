@@ -25,6 +25,7 @@ function render(container) {
         mode={'line'}
         // mode={'head'}
         onRemove={handleRemove}
+        url='http://icon.qiantucdn.com/static/images/public/greenlogo.png'
       />
     </div>, container
   )
