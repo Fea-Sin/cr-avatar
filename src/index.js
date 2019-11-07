@@ -4,12 +4,14 @@ import classNames from 'classnames';
 import OuiDom from './utils/ouiDomUtils';
 import { version, Tooltip, Icon } from 'antd';
 import 'antd/dist/antd.css';
+import Picon from './utils/Picon';
 
 class Comp extends PureComponent {
 
   constructor(props) {
     super(props)
     this.state = {
+      labelHover: false,
     }
   }
 
@@ -25,6 +27,16 @@ class Comp extends PureComponent {
     if (onRemove && typeof onRemove === 'function') {
       onRemove()
     }
+  }
+  handleMouseEnter = () => {
+    this.setState({
+      labelHover: true,
+    })
+  }
+  handleMouseLeave = () => {
+    this.setState({
+      labelHover: false,
+    })
   }
 
   setString = (str) => {
@@ -62,8 +74,8 @@ class Comp extends PureComponent {
                </Tooltip>)
             : (<span>{Head()}</span>)
           }
-          <div className={`${prefixCls}-ava-remove`} onClick={this.handleRemove}>
-            <Icon type="close-circle" theme="filled" style={{ position: 'relative', top: '-5px', transform: 'rotate(30deg)' }} />
+          <div className={`${prefixCls}-ava-remove`} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave} onClick={this.handleRemove}>
+            <Picon style={{fontSize: 19, transform: 'rotate(30deg)', position: 'relative', top: '0px', left: '-5px'}} icon={ this.state.labelHover ? 'iconshanchurenyuan-yiru' : 'iconshanchurenyuan-moren' } />
           </div>
         </div>
         { 
