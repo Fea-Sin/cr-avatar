@@ -1,6 +1,13 @@
 import React, { Component, PureComponent } from 'react';
+import classNames from 'classnames';
 
-function HoverHoc(Wrap) {
+function HoverHoc(Wrap, config) {
+  let className, htmlTag;
+  if (config) {
+    className = config.className
+    htmlTag = config.htmlTag
+  }
+
   return class extends PureComponent {
 
     state = {
@@ -18,9 +25,33 @@ function HoverHoc(Wrap) {
     }
 
     render() {
+      const hoverCls = classNames(className)
+      const style = {
+        display: 'inline-block',
+      }
+      if (htmlTag === 'span') {
+        return (
+          <span
+            onMouseEnter={this.handleMouseEnter} 
+            ishover={this.state.isHover} 
+            onMouseLeave={this.handleMouseLeave}
+            style={style}
+            className={hoverCls}
+          >
+            <Wrap {...this.props} ishover={this.state.isHover} />
+          </span>
+        )
+      }
+
       return (
-        <div onMouseEnter={this.handleMouseEnter} isHover={this.state.isHover} onMouseLeave={this.handleMouseLeave}>
-          <Wrap {...this.props} isHover={this.state.isHover} />
+        <div 
+          onMouseEnter={this.handleMouseEnter} 
+          ishover={this.state.isHover} 
+          onMouseLeave={this.handleMouseLeave}
+          style={style}
+          className={hoverCls}
+        >
+          <Wrap {...this.props} ishover={this.state.isHover} />
         </div>
       )
     }

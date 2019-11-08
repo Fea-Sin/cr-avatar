@@ -5,6 +5,7 @@ import OuiDom from './utils/ouiDomUtils';
 import { version, Tooltip, Icon } from 'antd';
 import 'antd/dist/antd.css';
 import Picon from './utils/Picon';
+import HoverHoc from './utils/HoverHoc';
 
 class Comp extends PureComponent {
 
@@ -107,4 +108,6 @@ Comp.defaultProps = {
   prefixCls: 'cr-app',
   color: '#647BFC',
 }
-export default Comp
+
+export { HoverHoc };
+export default Comp;

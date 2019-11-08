@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Testone from 'cr-avatar';
+import Testone, { HoverHoc } from 'cr-avatar';
 import '../assets/index.less';
-import HoverHoc from '../src/utils/HoverHoc';
+// import HoverHoc from '../src/utils/HoverHoc';
+import '../assets/example.less';
 
 const reactContainer = document.getElementById('__react-content');
 const bodyContainer = document.getElementsByTagName('body')
@@ -21,15 +22,27 @@ function Demo(props) {
     <div style={{width: 300, height: 50, border: '1px solid green'}}>
       <span>demo</span><span style={{marginLeft: 10}}>{props.hello}</span>
       {
-        props.isHover
+        props.ishover
         ? (<div>鼠标移入</div>)
         : (<div>鼠标移出</div>)
       }
     </div>
   )
 }
+function SpanDemo(props) {
+  return (
+    <span>
+      测试span tag {props.ishover}
+    </span>
+  )
+}
 
-const Hover = HoverHoc(Demo)
+const Hover = HoverHoc(Demo, {
+  className: 'hoverBox',
+})
+const HoverSpan = HoverHoc(SpanDemo, {
+  htmlTag: 'span'
+})
 
 function render(container) {
   ReactDOM.render(
@@ -45,6 +58,9 @@ function render(container) {
       />
       <h2 style={{marginTop: 30}}>HOVER REACT COMPONENT</h2>
       <Hover hello='world' />
+      <div>
+        <HoverSpan /> 测试span hover 标签
+      </div>
     </div>, container
   )
 }

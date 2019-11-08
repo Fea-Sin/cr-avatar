@@ -1,6 +1,6 @@
 {
   "name": "cr-avatar",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "a template about create react component",
   "scripts": {
     "start": "rc-tools run server",
