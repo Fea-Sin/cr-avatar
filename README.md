@@ -3,7 +3,7 @@
 A react component about custom avatar
 
 ## view
-[HoverHoc]('./HoverHoc.md')
+[HoverHoc](./HoverHoc.md)
 
 ## Installation
 ```
