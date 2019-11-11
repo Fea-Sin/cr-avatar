@@ -2,6 +2,9 @@
 
 A react component about custom avatar
 
+## view
+[HoverHoc]('./HoverHoc.md')
+
 ## Installation
 ```
 cnpm install --save cr-avatar
