@@ -1,5 +1,6 @@
 ## HoverHoc
-react component to element hover
+React component to element hover <br />
+The component key is input children props.ishover
 
 ## Installation
 ```
