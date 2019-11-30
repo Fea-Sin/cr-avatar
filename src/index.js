@@ -2,10 +2,11 @@ import React, { PureComponent, Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import OuiDom from './utils/ouiDomUtils';
-import { version, Tooltip, Icon } from 'antd';
 import 'antd/dist/antd.css';
 import Picon from './utils/Picon';
 import HoverHoc from './utils/HoverHoc';
+import Tooltip from 'antd/es/tooltip';
+import 'antd/es/tooltip/style';
 
 class Comp extends PureComponent {
 
