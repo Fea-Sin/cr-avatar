@@ -1,8 +1,6 @@
 import React, { PureComponent, Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import OuiDom from './utils/ouiDomUtils';
-import 'antd/dist/antd.css';
 import Picon from './utils/Picon';
 import HoverHoc from './utils/HoverHoc';
 import Tooltip from 'antd/es/tooltip';
@@ -51,7 +49,7 @@ class Comp extends PureComponent {
   
 
   render () {
-    const { prefixCls, name, color, mode, url } = this.props
+    const { prefixCls, name, color, mode, url, remove } = this.props
     const avaStyle = {
       backgroundColor: url ? '#FFF' : color,
     }
@@ -76,9 +74,13 @@ class Comp extends PureComponent {
                </Tooltip>)
             : (<span>{Head()}</span>)
           }
-          <div className={`${prefixCls}-ava-remove`} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave} onClick={this.handleRemove}>
-            <Picon style={{fontSize: 19, transform: 'rotate(30deg)', position: 'relative', top: '0px', left: '-5px'}} icon={ this.state.labelHover ? 'iconshanchurenyuan-yiru' : 'iconshanchurenyuan-moren' } />
-          </div>
+          {
+            remove && (
+              <div className={`${prefixCls}-ava-remove`} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave} onClick={this.handleRemove}>
+                <Picon style={{fontSize: 19, transform: 'rotate(30deg)', position: 'relative', top: '0px', left: '-5px'}} icon={ this.state.labelHover ? 'iconshanchurenyuan-yiru' : 'iconshanchurenyuan-moren' } />
+              </div>
+            )
+          }
         </div>
         { 
           mode === 'line'
@@ -104,10 +106,12 @@ Comp.propTypes = {
   mode: PropTypes.oneOf(['line', 'head']),
   onRemove: PropTypes.func,
   url: PropTypes.string,
+  remove: PropTypes.bool,
 }
 Comp.defaultProps = {
   prefixCls: 'cr-app',
   color: '#647BFC',
+  remove: true,
 }
 
 export { HoverHoc };

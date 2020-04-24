@@ -6,9 +6,8 @@ A react component about custom avatar
 [HoverHoc](./HoverHoc.md)
 
 ## Installation
+
 ```
-cnpm install --save cr-avatar
-or
 npm install --save cr-avatar
 ```
 
@@ -46,6 +45,7 @@ color | string | 颜色
 mode | string | 组件模式（行内模式: 'line'; 头像模式: 'head'）
 url | string | 头像URL
 onRemove| function | 点击删除回调
+remove | bool | 可删除按钮配置（`true`: 有删除按钮, `false`: 没有删除按钮），默认值为`true`
 
 ## Development
 ```
