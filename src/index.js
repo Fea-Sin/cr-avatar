@@ -49,7 +49,7 @@ class Comp extends PureComponent {
   
 
   render () {
-    const { prefixCls, name, color, mode, url, remove } = this.props
+    const { prefixCls, name, color, mode, url, remove, disable } = this.props
     const avaStyle = {
       backgroundColor: url ? '#FFF' : color,
     }
@@ -65,7 +65,10 @@ class Comp extends PureComponent {
     return (
       <div className={`${prefixCls}-con`}>
         <div 
-          className={`${prefixCls}-ava`}
+          className={classNames({
+            [`${prefixCls}-ava`]: true,
+            [`${prefixCls}-disable`]: disable,
+          })}
           style={avaStyle}
         >
           { mode === 'head'
@@ -75,7 +78,7 @@ class Comp extends PureComponent {
             : (<span>{Head()}</span>)
           }
           {
-            remove && (
+            remove && !disable && (
               <div className={`${prefixCls}-ava-remove`} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave} onClick={this.handleRemove}>
                 <Picon style={{fontSize: 19, transform: 'rotate(30deg)', position: 'relative', top: '0px', left: '-5px'}} icon={ this.state.labelHover ? 'iconshanchurenyuan-yiru' : 'iconshanchurenyuan-moren' } />
               </div>
@@ -107,11 +110,13 @@ Comp.propTypes = {
   onRemove: PropTypes.func,
   url: PropTypes.string,
   remove: PropTypes.bool,
+  disable: PropTypes.bool,
 }
 Comp.defaultProps = {
   prefixCls: 'cr-app',
   color: '#647BFC',
   remove: true,
+  disable: false,
 }
 
 export { HoverHoc };

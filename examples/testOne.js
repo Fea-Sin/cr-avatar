@@ -55,7 +55,8 @@ function render(container) {
         // mode={'head'}
         onRemove={handleRemove}
         // url='http://icon.qiantucdn.com/static/images/public/greenlogo.png'
-        remove={false}
+        // remove={false}
+        disable={true}
       />
       <h2 style={{marginTop: 30}}>HOVER REACT COMPONENT</h2>
       <Hover hello='world' />
