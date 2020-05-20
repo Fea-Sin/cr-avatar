@@ -22,10 +22,10 @@ class Comp extends PureComponent {
     // console.log('component up date', prevState)
   }
 
-  handleRemove = () => {
+  handleRemove = (e) => {
     const { onRemove } = this.props;
     if (onRemove && typeof onRemove === 'function') {
-      onRemove()
+      onRemove(e)
     }
   }
   handleMouseEnter = () => {

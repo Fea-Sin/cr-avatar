@@ -1,6 +1,9 @@
 # History
 ----
 
+## 1.0.7
+handleRemove 增加默认 event click 事件传参
+
 ## 1.0.6
 增加禁用设置
 

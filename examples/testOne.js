@@ -13,8 +13,8 @@ reactContainer.style.cssText = `
                                 padding: 10px;
                                 margin-bottom: 10px;
                                `
-function handleRemove() {
-  console.log('click remove')
+function handleRemove(e) {
+  console.log('click remove----', e.target)
 }
 
 function Demo(props) {
@@ -51,12 +51,12 @@ function render(container) {
       <Testone
         name={'刘亦菲'}
         color={'#647BFC'}
-        mode={'line'}
-        // mode={'head'}
+        // mode={'line'}
+        mode={'head'}
         onRemove={handleRemove}
         // url='http://icon.qiantucdn.com/static/images/public/greenlogo.png'
         // remove={false}
-        disable={true}
+        // disable={true}
       />
       <h2 style={{marginTop: 30}}>HOVER REACT COMPONENT</h2>
       <Hover hello='world' />
