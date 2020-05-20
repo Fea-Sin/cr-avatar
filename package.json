@@ -6,9 +6,7 @@
     "start": "rc-tools run server",
     "build": "rc-tools run build",
     "lint": "rc-tools run lint",
-    "compile": "rc-tools run compile --babel-runtime",
-    "test": "jest",
-    "coverage": "jest --coverage "
+    "compile": "rc-tools run compile --babel-runtime"
   },
   "keywords": [],
   "author": "feasin",
@@ -28,21 +26,6 @@
   ],
   "main": "./lib/index",
   "module": "./es/index",
-  "jest": {
-    "setupFiles": [
-      "./tests/setup.js"
-    ],
-    "collectCoverageFrom": [
-      "src/**/*",
-      "!src/utils/**/*"
-    ],
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ],
-    "transform": {
-      "\\.jsx?$": "./node_modules/rc-tools/scripts/jestPreprocessor.js"
-    }
-  },
   "devDependencies": {
     "enzyme": "^3.1.1",
     "enzyme-adapter-react-16": "^1.0.4",
