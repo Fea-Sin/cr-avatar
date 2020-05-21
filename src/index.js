@@ -92,7 +92,7 @@ class Comp extends PureComponent {
               className={`${prefixCls}-name`}
               style={nameStyle}
             >
-              {name}
+              <span style={{color: '#333'}}>{name}</span>
             </div>
           )
         }

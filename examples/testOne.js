@@ -51,8 +51,8 @@ function render(container) {
       <Testone
         name={'刘亦菲'}
         color={'#647BFC'}
-        // mode={'line'}
-        mode={'head'}
+        mode={'line'}
+        // mode={'head'}
         onRemove={handleRemove}
         // url='http://icon.qiantucdn.com/static/images/public/greenlogo.png'
         // remove={false}
