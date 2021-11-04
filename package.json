@@ -8,6 +8,9 @@
     "lint": "rc-tools run lint",
     "compile": "rc-tools run compile --babel-runtime"
   },
+  "engines": {
+    "node": "<=12"
+  },
   "keywords": [],
   "author": "feasin",
   "config": {
